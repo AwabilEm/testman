@@ -1,0 +1,11 @@
+Available times: [
+  '0: 10:00 AM', '1: 10:30 AM',
+  '2: 11:00 AM', '3: 11:30 AM',
+  '4: 12:00 PM', '5: 12:30 PM',
+  '6: 1:00 PM',  '7: 1:30 PM',
+  '8: 2:00 PM',  '9: 2:30 PM',
+  '10: 3:00 PM', '11: 3:30 PM',
+  '12: 4:00 PM', '13: 4:30 PM'
+]
+Selected time: 5: 12:30 PM
+Popup did not appear within the specified timeout or encountered an error.
