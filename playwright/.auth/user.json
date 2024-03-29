@@ -1,0 +1,45 @@
+{
+  "cookies": [
+    {
+      "name": "TiPMix",
+      "value": "22.62508791077448",
+      "domain": ".app.manduu.work",
+      "path": "/",
+      "expires": 1707977006.328233,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "x-ms-routing-name",
+      "value": "self",
+      "domain": ".app.manduu.work",
+      "path": "/",
+      "expires": 1707977006.328581,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "ARRAffinity",
+      "value": "038a9f8ff1b4a843bfc15f3e182c8e5fe238babd33fe2912311845fd414c0506",
+      "domain": ".app.manduu.work",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "ARRAffinitySameSite",
+      "value": "038a9f8ff1b4a843bfc15f3e182c8e5fe238babd33fe2912311845fd414c0506",
+      "domain": ".app.manduu.work",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    }
+  ],
+  "origins": []
+}

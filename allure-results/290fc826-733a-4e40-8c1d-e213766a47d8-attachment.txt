@@ -1,0 +1,38 @@
+page.waitForSelector: Timeout 5000ms exceeded.
+Call log:
+  - waiting for locator('.swal2-popup') to be visible
+
+    at handlePopups (d:\QA_LEARNING\Playwrite\client\tests\newonboarding.spec.ts:128:30)
+    at d:\QA_LEARNING\Playwrite\client\tests\newonboarding.spec.ts:23:8 {
+  name: 'TimeoutError',
+  [Symbol(step)]: {
+    stepId: 'pw:api@27',
+    location: {
+      file: 'd:\\QA_LEARNING\\Playwrite\\client\\tests\\newonboarding.spec.ts',
+      line: 128,
+      column: 30,
+      function: 'handlePopups'
+    },
+    category: 'pw:api',
+    title: 'page.waitForSelector(.swal2-popup)',
+    apiName: 'page.waitForSelector',
+    params: { selector: '.swal2-popup', timeout: 5000 },
+    wallTime: 1709589663100,
+    laxParent: false,
+    boxedStack: undefined,
+    steps: [],
+    complete: [Function: complete],
+    endWallTime: 1709589668198,
+    error: {
+      message: 'TimeoutError: page.waitForSelector: Timeout 5000ms exceeded.\n' +
+        'Call log:\n' +
+        "  \x1B[2m- waiting for locator('.swal2-popup') to be visible\x1B[22m\n",
+      stack: 'TimeoutError: page.waitForSelector: Timeout 5000ms exceeded.\n' +
+        'Call log:\n' +
+        "  \x1B[2m- waiting for locator('.swal2-popup') to be visible\x1B[22m\n" +
+        '\n' +
+        '    at handlePopups (d:\\QA_LEARNING\\Playwrite\\client\\tests\\newonboarding.spec.ts:128:30)\n' +
+        '    at d:\\QA_LEARNING\\Playwrite\\client\\tests\\newonboarding.spec.ts:23:8'
+    }
+  }
+}
