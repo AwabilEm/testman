@@ -1,9 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
-import path from 'path';
 
-export const STORAGE_STATE = path.join(__dirname, 'playwright/.auth/user.json');
-// const VIDEOS_DIR = path.join(__dirname, 'videos'); // Define the directory to save videos
-// const REPORT_DIR = path.join(__dirname, 'reports'); // Define the directory to save reports
 
 export default defineConfig({
   testDir: './tests',
@@ -20,27 +16,32 @@ export default defineConfig({
     ['allure-playwright'],
   ],
   use: {
-    trace: 'on-first-retry',
-    // video: {
-    //   mode: 'on',
-    //   //   
-    // },
-    video: 'on',
+    /* Base URL to use in actions like `await page.goto('/')`. */
+    // baseURL: 'http://127.0.0.1:3000',
+
+    /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
+    headless: true,
+    channel: 'chrome',
     screenshot: 'only-on-failure',
+    video: 'retain-on-failure',
+    trace: 'on-first-retry',
   },
 
   projects: [
+   
     {
-      name: 'setup',
-      testMatch: '**/*.setup.ts',
+      name: 'chromium',
+      use: { ...devices['Desktop Chrome'] },
     },
+
     {
-      name: 'booking sessions',
-      testMatch: '**/*booking.spec.ts',
-      dependencies: ['setup'],
-      use: {
-        storageState: STORAGE_STATE,
-      },
+      name: 'firefox',
+      use: { ...devices['Desktop Firefox'] },
+    },
+
+    {
+      name: 'webkit',
+      use: { ...devices['Desktop Safari'] },
     },
     
     // {
