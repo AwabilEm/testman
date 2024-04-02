@@ -33,19 +33,21 @@ async function fillPersonalInformation(page: any) {
 
   await page.locator('man-input').filter({ hasText: 'First Name *' }).getByRole('textbox').fill('test1');
   await page.locator('man-input').filter({ hasText: 'Last Name *' }).getByRole('textbox').fill('test2');
-  await page.getByRole('textbox').nth(2).fill('testmanduu2@gmail.com');
-  await page.getByRole('textbox').nth(3).fill('testmanduu2@gmail.com');
+  await page.getByRole('textbox').nth(2).fill('testmanduu3@gmail.com');
+  await page.getByRole('textbox').nth(3).fill('testmanduu3@gmail.com');
   await page.getByRole('button', { name: 'Continue ' }).click();
   
 //   await page.timeout(2000);
 
   await page.fill('input[name="dateOfBirth"]', '12/18/2007');
-  await page.locator('input[type="text"]').fill('(024) 993-0053');
+  await page.locator('input[type="text"]').fill('(024) 543-0053');
   await page.locator('div').filter({ hasText: /^Password$/ }).getByRole('textbox').fill('123456');
   await page.locator('div').filter({ hasText: /^Confirm Password$/ }).getByRole('textbox').fill('123456');
   
   await page.getByRole('button', { name: 'Continue' }).click();
   
+   
+
   }
 
 
@@ -54,6 +56,7 @@ async function fillPersonalInformation(page: any) {
 async function selectStudio(page: any) {
 
   await page.selectOption('select[formcontrolname="studioId"]', { label: 'Edmond Oklahoma' });
+  //await page.locator('app-session-appointment div').filter({ hasText: 'Select Studio-- Select Studio' }).getByRole('combobox').selectOption('47');
 
 }
  // Fill in the scheduled date.
@@ -63,6 +66,7 @@ async function fillScheduledDate(page: any) {
   // await page.click('body');
   // await page.waitForTimeout(1000);
 await page.click('text="Start Time"');
+
 
 }
  // Select a random time from available options.
@@ -130,12 +134,19 @@ async function handlePopups(page: any) {
     // Handle timeout or other errors
     console.log('Popup did not appear within the specified timeout or encountered an error.');
     console.error(error);
+
+   
   }
 }
-//signing medical waiver form
+
 async function signMedicalConditions(page: any) {
+  // Sign that the user does not have any medical conditions
   await page.getByLabel('No').first().check();
+  
+  // Sign that the user is not pregnant
   await page.click('input[type="radio"][name="pregnant"][value="No"]');
+
+  // Sign that the user does not have any other medical conditions
   await page.getByLabel('No').nth(2).check();
   await page.getByLabel('No').nth(3).check();
   await page.getByRole('button', { name: 'No, I do not have any of' }).click();
@@ -144,7 +155,8 @@ async function signMedicalConditions(page: any) {
 
 async function howYouHearAboutUs(page: any) {
   
- 
+  // Select how the user heard about Manduu (e.g., Print Magazine, Radio, TV, etc.)
+  // await page.click('input[type="checkbox"][name="howDidYouHearAboutUs"][value="Print Magazine"]');
   await page.locator('li').filter({ hasText: 'Print Magazine' }).getByRole('checkbox').check();
   await page.locator('li').filter({ hasText: 'Radio' }).getByRole('checkbox').check();
   await page.locator('li').filter({ hasText: 'TV' }).getByRole('checkbox').check();
@@ -176,7 +188,6 @@ async function FirstAppointment(page: any){
   //await page.getByRole('button', { name: 'Complete Profile' }).first().click();
 }
 async function  completeProfile(page: any){
-  
   
   // await page.getByRole('button', { name: 'Continue' }).click();
 await page.getByRole('button', { name: 'Complete Profile' }).first().click();
