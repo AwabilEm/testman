@@ -64,7 +64,7 @@ async function selectStudio(page: any) {
  // Fill in the scheduled date.
 async function fillScheduledDate(page: any) {
    //await page.fill('#ScheduledDate', '05/07/2024');
-   await page.fill('xpath=//input[@id="ScheduledDate"]','05/07/2024')
+   await page.fill('xpath=//input[@id="ScheduledDate"]','05/10/2024')
   // await page.click('body');
   // await page.waitForTimeout(1000);
 await page.click('text="Start Time"');
