@@ -8,7 +8,8 @@ test.beforeEach(async ({ page }) => {
 test('Onboarding', async ({ page }) => {
  // Fill in personal information
  await fillPersonalInformation(page);
-
+ // fill personal medicals
+ await signMedicalConditions(page);
  // Select the studio
  await selectStudio(page);
 
@@ -19,13 +20,14 @@ test('Onboarding', async ({ page }) => {
  await selectRandomTime(page);
 
  // Click the next button
- await page.getByRole('button', { name: 'Continue' }).click();
  await handlePopups(page);
-
- await signMedicalConditions(page);
- await howYouHearAboutUs(page);
- await FirstAppointment(page);
  await completeProfile(page);
+
+ //await howYouHearAboutUs(page);
+ //await FirstAppointment(page);
+
+
+ 
 });
 
 async function fillPersonalInformation(page: any) {
@@ -108,6 +110,9 @@ async function selectRandomTime(page: any) {
     console.warn('No available times found after retries.');
   }
 
+  await page.getByRole('button', { name: 'Continue' }).click();
+   // Click the OK button to continue
+   await page.getByRole('button', { name: 'Next' }).click();
 
 
 }
@@ -192,12 +197,38 @@ async function  completeProfile(page: any){
   // await page.getByRole('button', { name: 'Continue' }).click();
 await page.getByRole('button', { name: 'Complete Profile' }).first().click();
 await page.getByRole('combobox').first().selectOption('male');
-await page.locator('div').filter({ hasText: /^CountrySelect CountryUnited States of AmericaCanadaMexico$/ }).getByRole('combobox').selectOption('USA');
+// await page.locator('div').filter({ hasText: /^CountrySelect CountryUnited States of AmericaCanadaMexico$/ }).getByRole('combobox').selectOption('USA');
+await page.locator('div').filter({ hasText: /^CountrySelect CountryUnited States of AmericaCanadaMexico$/ }).getByRole('combobox').selectOption('United States of America');
 await page.getByRole('combobox').nth(2).selectOption('Tennessee');
 await page.locator('man-input').filter({ hasText: 'City *' }).getByRole('textbox').fill('accra');
 await page.locator('man-input').filter({ hasText: 'Zip Code *' }).getByRole('textbox').fill('123456');
 
 await page.locator('man-input').filter({ hasText: 'Street *' }).getByRole('textbox').fill('accrastreest');
 await page.getByRole('button', { name: 'Save' }).click();
+
+
+
+
 //test
+
 }
+// async function  completeProfile(page: any){
+  
+//   // await page.getByRole('button', { name: 'Continue' }).click();
+// await page.getByRole('button', { name: 'Complete Profile' }).first().click();
+// await page.getByRole('combobox').first().selectOption('male');
+// // await page.locator('div').filter({ hasText: /^CountrySelect CountryUnited States of AmericaCanadaMexico$/ }).getByRole('combobox').selectOption('USA');
+// await page.locator('div').filter({ hasText: /^CountrySelect CountryUnited States of AmericaCanadaMexico$/ }).getByRole('combobox').selectOption('United States of America');
+// await page.getByRole('combobox').nth(2).selectOption('Tennessee');
+// await page.locator('man-input').filter({ hasText: 'City *' }).getByRole('textbox').fill('accra');
+// await page.locator('man-input').filter({ hasText: 'Zip Code *' }).getByRole('textbox').fill('123456');
+
+// await page.locator('man-input').filter({ hasText: 'Street *' }).getByRole('textbox').fill('accrastreest');
+// await page.getByRole('button', { name: 'Save' }).click();
+
+
+
+
+// //test
+
+// }
