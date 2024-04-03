@@ -199,5 +199,6 @@ await page.locator('man-input').filter({ hasText: 'Zip Code *' }).getByRole('tex
 
 await page.locator('man-input').filter({ hasText: 'Street *' }).getByRole('textbox').fill('accrastreest');
 await page.getByRole('button', { name: 'Save' }).click();
-
+await page.getByRole('button', { name: 'Save' }).click();
+//test
 }
