@@ -22,7 +22,7 @@ test('Onboarding', async ({ page }) => {
  // Click the next button
  await handlePopups(page);
  await completeProfile(page);
-
+ await CompleteClientInfo(page);
  //await howYouHearAboutUs(page);
  //await FirstAppointment(page);
 
@@ -35,14 +35,14 @@ async function fillPersonalInformation(page: any) {
 
   await page.locator('man-input').filter({ hasText: 'First Name *' }).getByRole('textbox').fill('test1');
   await page.locator('man-input').filter({ hasText: 'Last Name *' }).getByRole('textbox').fill('test2');
-  await page.getByRole('textbox').nth(2).fill('testmanduu3@gmail.com');
-  await page.getByRole('textbox').nth(3).fill('testmanduu3@gmail.com');
+  await page.getByRole('textbox').nth(2).fill('testmanduu6@gmail.com');
+  await page.getByRole('textbox').nth(3).fill('testmanduu6@gmail.com');
   await page.getByRole('button', { name: 'Continue ' }).click();
   
 //   await page.timeout(2000);
 
   await page.fill('input[name="dateOfBirth"]', '12/18/2007');
-  await page.locator('input[type="text"]').fill('(024) 543-0053');
+  await page.locator('input[type="text"]').fill('(024) 043-0053');
   await page.locator('div').filter({ hasText: /^Password$/ }).getByRole('textbox').fill('123456');
   await page.locator('div').filter({ hasText: /^Confirm Password$/ }).getByRole('textbox').fill('123456');
   
@@ -64,7 +64,7 @@ async function selectStudio(page: any) {
  // Fill in the scheduled date.
 async function fillScheduledDate(page: any) {
    //await page.fill('#ScheduledDate', '05/07/2024');
-   await page.fill('xpath=//input[@id="ScheduledDate"]','05/10/2024')
+   await page.fill('xpath=//input[@id="ScheduledDate"]','09/17/2024')
   // await page.click('body');
   // await page.waitForTimeout(1000);
 await page.click('text="Start Time"');
@@ -212,23 +212,15 @@ await page.getByRole('button', { name: 'Save' }).click();
 //test
 
 }
-// async function  completeProfile(page: any){
+async function  CompleteClientInfo(page: any){
   
-//   // await page.getByRole('button', { name: 'Continue' }).click();
-// await page.getByRole('button', { name: 'Complete Profile' }).first().click();
-// await page.getByRole('combobox').first().selectOption('male');
-// // await page.locator('div').filter({ hasText: /^CountrySelect CountryUnited States of AmericaCanadaMexico$/ }).getByRole('combobox').selectOption('USA');
-// await page.locator('div').filter({ hasText: /^CountrySelect CountryUnited States of AmericaCanadaMexico$/ }).getByRole('combobox').selectOption('United States of America');
-// await page.getByRole('combobox').nth(2).selectOption('Tennessee');
-// await page.locator('man-input').filter({ hasText: 'City *' }).getByRole('textbox').fill('accra');
-// await page.locator('man-input').filter({ hasText: 'Zip Code *' }).getByRole('textbox').fill('123456');
+ 
+  await page.getByRole('button', { name: 'Complete Client Info' }).click();
+  await page.locator('div').filter({ hasText: /^Heigh\(Feet\)Selected Inch4567$/ }).getByRole('combobox').selectOption('5');
+  await page.locator('div').filter({ hasText: /^Heigh\(Inches\)Selected Height01234567891011$/ }).getByRole('combobox').selectOption('7');
+  await page.locator('man-input').filter({ hasText: 'Enter Full Name *' }).getByRole('textbox').fill('test');
+  await page.locator('man-input').filter({ hasText: 'Lastname *' }).getByRole('textbox').fill('mand');
+  await page.locator('div').filter({ hasText: /^Phone Number$/ }).getByRole('textbox').fill('(054) 433-3333');
+  await page.getByRole('button', { name: 'Save' }).click();
 
-// await page.locator('man-input').filter({ hasText: 'Street *' }).getByRole('textbox').fill('accrastreest');
-// await page.getByRole('button', { name: 'Save' }).click();
-
-
-
-
-// //test
-
-// }
+}

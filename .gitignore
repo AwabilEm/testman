@@ -8,4 +8,5 @@ node_modules/
 /blob-report/
 /allure-results/
 /allure-report/
+/testUse.spec.ts/
 /playwright/.cache/
