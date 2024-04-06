@@ -1,5 +1,6 @@
 import { defineConfig, devices } from '@playwright/test';
 
+require('dotenv').config();
 
 export default defineConfig({
   testDir: './tests',
@@ -23,7 +24,7 @@ export default defineConfig({
     headless: true,
     channel: 'chrome',
     screenshot: 'only-on-failure',
-    video: 'retain-on-failure',
+    video: 'on',
     trace: 'on-first-retry',
   },
 
