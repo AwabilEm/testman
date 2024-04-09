@@ -35,18 +35,18 @@ test('Onboarding', async ({ page }) => {
 async function fillPersonalInformation(page: any) {
    
 
-  await page.locator('man-input').filter({ hasText: 'First Name *' }).getByRole('textbox').fill('test1');
-  await page.locator('man-input').filter({ hasText: 'Last Name *' }).getByRole('textbox').fill('test2');
-  await page.getByRole('textbox').nth(2).fill('testmanduu6@gmail.com');
-  await page.getByRole('textbox').nth(3).fill('testmanduu6@gmail.com');
+  await page.locator('man-input').filter({ hasText: 'First Name *' }).getByRole('textbox').fill('Test');
+  await page.locator('man-input').filter({ hasText: 'Last Name *' }).getByRole('textbox').fill('Test');
+  await page.getByRole('textbox').nth(2).fill('testmanduu5@gmail.com');
+  await page.getByRole('textbox').nth(3).fill('testmanduu5@gmail.com');
   await page.getByRole('button', { name: 'Continue ' }).click();
   
 //   await page.timeout(2000);
 
-  await page.fill('input[name="dateOfBirth"]', '12/20/2007');
-  await page.locator('input[type="text"]').fill('(044) 883-4453');
-  await page.locator('div').filter({ hasText: /^Password$/ }).getByRole('textbox').fill('123456');
-  await page.locator('div').filter({ hasText: /^Confirm Password$/ }).getByRole('textbox').fill('123456');
+  await page.fill('input[name="dateOfBirth"]', '10/7/1990');
+  await page.locator('input[type="text"]').fill('(800) 4125564');
+  await page.locator('div').filter({ hasText: /^Password$/ }).getByRole('textbox').fill('Test1234');
+  await page.locator('div').filter({ hasText: /^Confirm Password$/ }).getByRole('textbox').fill('Test1234');
   
   await page.getByRole('button', { name: 'Continue' }).click();
   
@@ -65,8 +65,8 @@ async function selectStudio(page: any) {
 }
  // Fill in the scheduled date.
 async function fillScheduledDate(page: any) {
-   //await page.fill('#ScheduledDate', '05/07/2024');
-   await page.fill('xpath=//input[@id="ScheduledDate"]','09/17/2024')
+   //await page.fill('#ScheduledDate', '07/10/2024');
+   await page.fill('xpath=//input[@id="ScheduledDate"]','07/10/2024')
   // await page.click('body');
   // await page.waitForTimeout(1000);
 await page.click('text="Start Time"');
