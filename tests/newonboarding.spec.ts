@@ -37,14 +37,14 @@ async function fillPersonalInformation(page: any) {
 
   await page.locator('man-input').filter({ hasText: 'First Name *' }).getByRole('textbox').fill('test1');
   await page.locator('man-input').filter({ hasText: 'Last Name *' }).getByRole('textbox').fill('test2');
-  await page.getByRole('textbox').nth(2).fill('testmanduu6@gmail.com');
-  await page.getByRole('textbox').nth(3).fill('testmanduu6@gmail.com');
+  await page.getByRole('textbox').nth(2).fill('testmanduu2@gmail.com');
+  await page.getByRole('textbox').nth(3).fill('testmanduu2@gmail.com');
   await page.getByRole('button', { name: 'Continue ' }).click();
   
 //   await page.timeout(2000);
 
   await page.fill('input[name="dateOfBirth"]', '12/20/2007');
-  await page.locator('input[type="text"]').fill('(044) 883-4453');
+  await page.locator('input[type="text"]').fill('(044) 333-4453');
   await page.locator('div').filter({ hasText: /^Password$/ }).getByRole('textbox').fill('123456');
   await page.locator('div').filter({ hasText: /^Confirm Password$/ }).getByRole('textbox').fill('123456');
   
