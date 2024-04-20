@@ -5,9 +5,9 @@ import { test, expect } from '@playwright/test';
 //     await page.goto('https://newpwa.manduu.app/account/register');
 //   });
 
-const email = 'testmanduu2@gmail.com';
+const email = 'testmanduu4@gmail.com';
 const password = '123456'
-const PhoneNumber = '23354874957';
+const PhoneNumber = '23364874957';
 const fName = 'test';
 const lName ='test2'
 const selectStu = 'Edmond Oklahoma';
@@ -49,11 +49,15 @@ await page.getByRole('link', { name: ' Client Session' }).click();
 await page.fill('[formcontrolname="selectedDate"]', '17 September, 2024');
 await page.getByText('Select studio').click();
 await page.getByText('Edmond Oklahoma').click();
-await page.locator('a').filter({ hasText: ':00 - 1:30test1 test2' }).click();
+// await page.locator('a').filter({ hasText: (fName) && (lName) }).click();
+//const fullName = `${firstName} ${lastName}`;
+await page.locator('a').filter({ hasText: (fName) && (lName) }).click();
+
 await page.getByLabel('Status').selectOption('Executed');
 await page.getByLabel('Personal coach / Trainer').selectOption('307');
 await page.getByLabel('Client memo').fill('testing');
 await page.getByRole('button', { name: 'Save' }).click();
+await page.waitForTimeout(2000);
 
 
 });
@@ -66,7 +70,7 @@ test('LoginToCompleteOnboard', async ({ page }) => {
  
   await addCard(page)
   await signContract(page)
-  
+  await page.goto('https://newpwa.manduu.app/app/client/dashboard');
   
      });
 
@@ -94,7 +98,6 @@ async function fillPersonalInformation(page: any) {
    
 
   }
-
 
 
    //Select the studio.
