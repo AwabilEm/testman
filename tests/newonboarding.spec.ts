@@ -4,7 +4,17 @@ import { test, expect } from '@playwright/test';
 //     // Navigate to the sign-up page
 //     await page.goto('https://newpwa.manduu.app/account/register');
 //   });
+// test.beforeEach(async ({ page }) => {
+//     // Navigate to the sign-up page
+//     await page.goto('https://newpwa.manduu.app/account/register');
+//   });
 
+const email = 'testmanduu4@gmail.com';
+const password = '123456'
+const PhoneNumber = '23364874957';
+const fName = 'test';
+const lName ='test2'
+const selectStu = 'Edmond Oklahoma';
 const email = 'testmanduu4@gmail.com';
 const password = '123456'
 const PhoneNumber = '23364874957';
@@ -13,6 +23,7 @@ const lName ='test2'
 const selectStu = 'Edmond Oklahoma';
 
 test('Onboarding', async ({ page }) => {
+  await page.goto('https://newpwa.manduu.app/account/register');
   await page.goto('https://newpwa.manduu.app/account/register');
  // Fill in personal information
  await fillPersonalInformation(page);
@@ -84,11 +95,18 @@ async function fillPersonalInformation(page: any) {
   await page.locator('man-input').filter({ hasText: 'Last Name *' }).getByRole('textbox').fill(lName);
   await page.getByRole('textbox').nth(2).fill(email);
   await page.getByRole('textbox').nth(3).fill(email);
+  await page.locator('man-input').filter({ hasText: 'First Name *' }).getByRole('textbox').fill(fName);
+  await page.locator('man-input').filter({ hasText: 'Last Name *' }).getByRole('textbox').fill(lName);
+  await page.getByRole('textbox').nth(2).fill(email);
+  await page.getByRole('textbox').nth(3).fill(email);
   await page.getByRole('button', { name: 'Continue ' }).click();
   
 //   await page.timeout(2000);
 
   await page.fill('input[name="dateOfBirth"]', '12/20/2007');
+  await page.locator('input[type="text"]').fill(PhoneNumber);
+  await page.locator('div').filter({ hasText: /^Password$/ }).getByRole('textbox').fill(password);
+  await page.locator('div').filter({ hasText: /^Confirm Password$/ }).getByRole('textbox').fill(password);
   await page.locator('input[type="text"]').fill(PhoneNumber);
   await page.locator('div').filter({ hasText: /^Password$/ }).getByRole('textbox').fill(password);
   await page.locator('div').filter({ hasText: /^Confirm Password$/ }).getByRole('textbox').fill(password);
@@ -103,6 +121,7 @@ async function fillPersonalInformation(page: any) {
    //Select the studio.
 async function selectStudio(page: any) {
 
+  await page.selectOption('select[formcontrolname="studioId"]', { label: selectStu });
   await page.selectOption('select[formcontrolname="studioId"]', { label: selectStu });
   //await page.locator('app-session-appointment div').filter({ hasText: 'Select Studio-- Select Studio' }).getByRole('combobox').selectOption('47');
 
@@ -303,6 +322,57 @@ await page.locator('div').filter({ hasText: /^Draw SignatureClick To Sign$/ }).g
 await page.getByRole('button', { name: ' Sign' }).click();
   
 }
+// async function Confirm(page: any){
+  
+//   await page.getByRole('button', { name: 'First Appointment' }).click();
+//   await page.getByRole('button', { name: 'Continue' }).click();
+   
+//   };
+  
+  async function addCard(page:any) {
+    await page.getByRole('button', { name: 'Add Card' }).click();
+    
+    await page.getByTitle('Add Your Card').locator('input[type="text"]').fill('TESTER CARD');
+    
+    await page.locator('#cc-number').first().fill('4916186141125817');
+    
+    await page.locator('#cc-exp-date').fill('06 / 2026');
+    
+    await page.locator('#cc-number').nth(1).fill('546');
+    await page.getByRole('button', { name: 'Authorize' }).click();
+  
+  }
+  
+       async function signContract(page:any){
+        await page.getByRole('button', { name: 'Sign Contract' }).click();
+    await page.locator('div').filter({ hasText: /^Fit 8 Plan \(Manduu Oklahoma\)$/ }).click();
+    await page.getByRole('button', { name: 'Continue' }).click();
+    await page.getByTitle('Sign Contract').locator('canvas').click({
+      position: {
+        x: 109,
+        y: 56
+      }
+    });
+    await page.getByTitle('Sign Contract').locator('canvas').click({
+      position: {
+        x: 152,
+        y: 54
+      }
+    });
+    
+  
+    await page.getByRole('button', { name: 'Sign Here' }).first().click();
+    await page.getByRole('button', { name: 'Sign Here' }).nth(1).click();
+    await page.getByRole('button', { name: 'Sign Here' }).nth(2).click();
+    await page.getByRole('button', { name: 'Sign Here' }).nth(3).click();
+    await page.getByRole('button', { name: 'Sign Here' }).nth(4).click();
+    await page.getByRole('button', { name: ' Sign' }).click();
+    await page.getByRole('button', { name: 'Complete Onboarding' }).click();
+    await page.goto('https://newpwa.manduu.app/app/client/dashboard');
+  
+  
+  
+       }
 // async function Confirm(page: any){
   
 //   await page.getByRole('button', { name: 'First Appointment' }).click();
