@@ -4,7 +4,7 @@ import { defineConfig, devices } from '@playwright/test';
 require('dotenv').config();
 
 export default defineConfig({
-  //testDir: './tests',
+  testDir: './tests',
   timeout: 500 * 1000,
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
@@ -31,14 +31,7 @@ export default defineConfig({
 
 
   projects: [
-    {
-      name: 'tests',
-      testDir: './tests',
-    },
-    {
-      name: 'e2e',
-      testDir: './ete',
-    },
+    
     {
       name: 'setup',
       testDir: './',

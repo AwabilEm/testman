@@ -4,9 +4,9 @@ import { allure } from "allure-playwright";
 
 
 
-const email = 'manduu.test24@gmail.com';
+const email = 'manduu.test26@gmail.com';
 const password = 'TestUser@1'
-const PhoneNumber = '233544874957';
+const PhoneNumber = '0543287466';
 const fName = 'test';
 const lName ='automate'
 const selectStu = 'Edmond Oklahoma';
@@ -110,7 +110,8 @@ await page.locator('app-dropdown[placeholder="Status"] .p-dropdown-trigger').cli
 await page.locator('.p-dropdown-item:has-text("Executed")').click();
 
 await page.locator('app-dropdown[placeholder="Personal coach / Trainer"] .p-dropdown-trigger').click();
-await page.locator('span[aria-label="Sparki Napier"]').click();
+await page.locator('.p-dropdown-item:has-text("Sparki Napier")').click();
+  // await page.locator('span[aria-label="Sparki Napier"]').click();
 
 
 
