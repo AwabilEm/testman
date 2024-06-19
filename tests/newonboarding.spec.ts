@@ -4,11 +4,12 @@ import { allure } from "allure-playwright";
 
 
 
-const email = 'manduu.test2@gmail.com';
+const email = 'manduu.test103@gmail.com';
 const password = 'TestUser@1'
-const PhoneNumber = '0543087324';
+const PhoneNumber = '054-356-7399';
 const fName = 'test';
 const lName ='automate'
+const tt ='me'
 const selectStu = 'Edmond Oklahoma';
 const SelectedDate ='09/17/2024'
 let selectedTime: string | null = null;
@@ -16,7 +17,7 @@ let selectedTime: string | null = null;
 // Convert selected date to calendar format
 let CalendarSelectedDate = convertDate(SelectedDate);
 console.log(CalendarSelectedDate); // Output: "17 September, 2024"
-
+console.log(tt)
 
 // Function to convert date format
 function convertDate(date: string): string {
@@ -110,7 +111,7 @@ await page.locator('app-dropdown[placeholder="Status"] .p-dropdown-trigger').cli
 await page.locator('.p-dropdown-item:has-text("Executed")').click();
 
 await page.locator('app-dropdown[placeholder="Personal coach / Trainer"] .p-dropdown-trigger').click();
-await page.locator('.p-dropdown-item:has-text("Sparki Napier")').click();
+await page.locator('.p-dropdown-item:has-text("Trainer Test")'). click();
   // await page.locator('span[aria-label="Sparki Napier"]').click();
 
 
