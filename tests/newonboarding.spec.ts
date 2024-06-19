@@ -4,9 +4,9 @@ import { allure } from "allure-playwright";
 
 
 
-const email = 'manduu.test26@gmail.com';
+const email = 'manduu.test2@gmail.com';
 const password = 'TestUser@1'
-const PhoneNumber = '0543287466';
+const PhoneNumber = '0543087324';
 const fName = 'test';
 const lName ='automate'
 const selectStu = 'Edmond Oklahoma';
